@@ -1,0 +1,6 @@
+{
+    "env": {
+        "DB_USERNAME": "postlight",
+        "DB_PASSWORD": "test123"
+    }
+}
