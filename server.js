@@ -18,9 +18,10 @@ app.use('/api', graphqlHttp({
 
 // Connect to MongoDB Atlas
 mongoose.connect(
-    `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@karnick-b0hmt.mongodb.net/${process.env.DB_NAME}?retryWrites=true`
+    `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@karnick-b0hmt.mongodb.net/${process.env.DB_NAME}?retryWrites=true`, { useNewUrlParser: true }
 ).then(() => {
     app.listen('1138')
+    console.log('Server listening on port: 1138')
 }).catch(err => {
     console.log(err)
 })

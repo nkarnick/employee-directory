@@ -5,7 +5,6 @@ type Employee {
     _id: ID!
     firstName: String!
     lastName: String!
-    jobTitle: String!
     email: String!
     phone: String!
     cell: String!
@@ -15,7 +14,6 @@ type Employee {
 input EmployeeInput {
     firstName: String!
     lastName: String!
-    jobTitle: String!
     email: String!
     phone: String!
     cell: String!

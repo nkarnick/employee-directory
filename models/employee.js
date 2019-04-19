@@ -11,10 +11,6 @@ const employeeSchema = new Schema({
         type: String,
         required: true
     },
-    jobTitle: {
-        type: String,
-        required: true
-    },
     email: {
         type: String,
         required: true
