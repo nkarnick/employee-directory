@@ -13,7 +13,7 @@ app.use(parser.json())
 app.use('/api', graphqlHttp({
     schema: schema,
     rootValue: resolvers,
-    graphiql: true
+    graphiql: true // Set to false in prod, should be in an .env
 }))
 
 // Connect to MongoDB Atlas
