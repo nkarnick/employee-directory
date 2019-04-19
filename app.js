@@ -3,8 +3,8 @@ const parser = require('body-parser')
 const graphqlHttp = require('express-graphql')
 const mongoose = require('mongoose')
 
-const schema = require('./graphql/schema/index')
-const resolvers = require('./graphql/resolvers/index')
+const schema = require('./schema/index')
+const resolvers = require('./resolvers/index')
 
 const app = express()
 

@@ -1,5 +1,5 @@
 
-const Employee = require('../../models/employee')
+const Employee = require('../models/employee')
 
 module.exports = {
     employees: () => {
