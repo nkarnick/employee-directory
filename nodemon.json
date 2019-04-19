@@ -1,5 +1,6 @@
 {
     "env": {
+        "DB_NAME": "employee-directory",
         "DB_USERNAME": "postlight",
         "DB_PASSWORD": "test123"
     }
