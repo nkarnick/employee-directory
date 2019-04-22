@@ -21,11 +21,13 @@ input EmployeeInput {
 }
 
 type Queries {
-    employees: [Employee!]!
+    employees(ids: [ID!], page: Int, limit: Int): [Employee!]!
 }
 
 type Mutations {
     createEmployee(employeeInput: EmployeeInput): Employee
+    deleteEmployee(id: ID!): Employee!
+    updateEmployee(id: ID!, employeeInput: EmployeeInput): Employee
 }
 
 schema {
