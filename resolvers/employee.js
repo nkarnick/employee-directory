@@ -4,7 +4,7 @@ const Employee = require('../models/employee')
 module.exports = {
     employees: async () => {
         try {
-            const employees = await Employee
+            const employees = await Employee.find()
             employees.map(employee => {
                 return { ...employee._doc }
             })
