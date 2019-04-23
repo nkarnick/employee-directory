@@ -1,4 +1,7 @@
-.home__pagination-container {
-    float: none;
-    margin: 0 auto;
+.home__main-wrapper {
+    margin: 1rem 0;
+}
+
+.home__pagination-wrapper {
+    width: 100%;
 }

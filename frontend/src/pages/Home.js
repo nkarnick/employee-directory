@@ -1,13 +1,17 @@
 import React, { Component } from 'react'
+import EmployeeCard from '../components/EmployeeCard'
 
 import './Home.css'
 
 class Home extends Component {
-    state = {
-        employees: [],
-        totalEmployees: 0,
-        pageSize: 9,
-        page: 1,
+    constructor(props) {
+        super(props)
+        this.state = {
+            employees: [],
+            totalEmployees: 0,
+            pageSize: 9,
+            page: 1,
+        }
     }
 
     componentDidMount() {
@@ -48,11 +52,12 @@ class Home extends Component {
         })
     }
 
-    fetchEmployees() {
+    fetchEmployees(page=1) {
+        console.log(page)
         const employeeRequestBody = {
             query: `
                 query {
-                    employees {
+                    employees(page: ${page-1}) {
                         _id,
                         firstName,
                         lastName,
@@ -89,35 +94,53 @@ class Home extends Component {
         })
     }
 
+    goToPage(pageNum, e) {
+        e.preventDefault();
+        console.log(pageNum)
+        this.setState({page: pageNum}, this.fetchEmployees(pageNum))
+    }
+
+
 
     render() {
         const employeeList = this.state.employees.map(employee => {
             var dob = new Date(employee.dob)
             employee.dob = (dob.getMonth() + 1) + '/' + dob.getDate() + '/' +  dob.getFullYear()
 
-            return <div/> //<EmployeeCard key={employee._id} employeeData={employee} />
+            return <EmployeeCard key={employee._id} employeeData={employee} />
         })
 
         let active = this.state.page;
-        let items = [];
-        for (let number = 1; number <= (this.state.employeeCount / this.state.pageSize); number++) {
-            items.push(
-                <div/>
-                //<Pagination.Item key={number} active={number === active}>
-                //{number}
-                //</Pagination.Item>,
+        let totalPages = Math.floor(this.state.employeeCount / this.state.pageSize)
+        let pagination = [];
+        for (let number = 1; number <= totalPages; number++) {
+            pagination.push(
+                <li className={"page-item " + (active === number ? "active" : "")} onClick={(e) => this.goToPage(number, e)} key={"pg-" + number}><a className="page-link" href="/">{number}</a></li>
             );
         }
 
         return (
-            <div className="container">
+            <div className="container-fluid home__main-wrapper">
                 <div className="row">
-                    <div className="col xs-12">
+                    <div className="home__pagination-wrapper">
+                        <ul className="pagination pagination-sm justify-content-center">
+                            <li className={"page-item " + (active === 1 ? "disabled" : "")} onClick={(active !== 1 ? (e) => this.goToPage((this.state.page-1), e) : null)}>
+                                <a className="page-link" href="/" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            {pagination}
+                            <li className={"page-item " + (active === totalPages ? "disabled" : "")} onClick={(active !== totalPages ? (e) => this.goToPage((this.state.page+1), e) : null)}>
+                                <a className="page-link" href="/" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col">
-                        <div className="container">
+                        <div className="container-fluid">
                             <div className="row">{employeeList}</div>
                         </div>
                     </div>

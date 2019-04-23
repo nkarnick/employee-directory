@@ -3,11 +3,11 @@ import './EmployeeCard.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const EmployeeCard = props => (
-    <div className="col sm-12 md-6 lg-4">
+    <div className="col-sm-12 col-md-6 col-lg-4">
         <div className="employee-card__bg"/>
-        <div className="container employee-card__wrapper">
-            <div className="row">
-                <div className="col md-12 lg-auto">
+        <div className="container-fluid employee-card__wrapper">
+            <div className="row no-gutters">
+                <div className="col-md-12 col-lg-auto">
                     <div className="employee-card__picture">
                         <img src={props.employeeData.photo} alt="Employee"></img>
                     </div>
