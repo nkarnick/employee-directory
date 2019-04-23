@@ -48,6 +48,13 @@ function saveEmployees (employees) {
             cell: employee.cell,
             dob: employee.dob.date
         })
+
+        // Skip non-latin names like Arabic, Cyrillic, etc
+        var regex = /[^\u0000-\u007F\u0080-\u00FF\u0100-\u017F\u0180-\u024F\u0250-\u02AF\u02B0-\u02FF]/g
+        if (newEmployee.firstName.match(regex) || newEmployee.lastName.match(regex)) {
+            return
+        }
+
         console.log('Creating ' + newEmployee.firstName + ' ' + newEmployee.lastName)
         newEmployees.push(newEmployee)
     })
