@@ -1,19 +1,18 @@
 import React from 'react';
 import './EmployeeCard.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Container, Row, Col } from 'react-bootstrap';
 
 const EmployeeCard = props => (
-    <Col sm={12} md={6} lg={4}>
+    <div className="col sm-12 md-6 lg-4">
         <div className="employee-card__bg"/>
-        <Container fluid className="employee-card__wrapper">
-            <Row noGutters>
-                <Col md={12} lg="auto">
+        <div className="container employee-card__wrapper">
+            <div className="row">
+                <div className="col md-12 lg-auto">
                     <div className="employee-card__picture">
                         <img src={props.employeeData.photo} alt="Employee"></img>
                     </div>
-                </Col>
-                <Col>
+                </div>
+                <div className="col">
                     <div className="employee-card__name">
                         <h1>{props.employeeData.firstName} {props.employeeData.lastName}</h1>
                     </div>
@@ -29,11 +28,11 @@ const EmployeeCard = props => (
                     <div className="employee-card__dob">
                         <FontAwesomeIcon icon="birthday-cake" fixedWidth /> <span>{props.employeeData.dob}</span>
                     </div>
-                </Col>
-            </Row>
+                </div>
+            </div>
             <div className="clearfix"/>
-        </Container>
-    </Col>
+        </div>
+    </div>
 )
 
 export default EmployeeCard

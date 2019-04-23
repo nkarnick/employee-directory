@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import EmployeeCard from '../components/EmployeeCard'
-import {Container, Row, Col, Pagination } from 'react-bootstrap';
+
+import './Home.css'
 
 class Home extends Component {
     state = {
@@ -95,34 +95,34 @@ class Home extends Component {
             var dob = new Date(employee.dob)
             employee.dob = (dob.getMonth() + 1) + '/' + dob.getDate() + '/' +  dob.getFullYear()
 
-            return <EmployeeCard key={employee._id} employeeData={employee} />
+            return <div/> //<EmployeeCard key={employee._id} employeeData={employee} />
         })
 
         let active = this.state.page;
         let items = [];
         for (let number = 1; number <= (this.state.employeeCount / this.state.pageSize); number++) {
             items.push(
-                <Pagination.Item key={number} active={number === active}>
-                {number}
-                </Pagination.Item>,
+                <div/>
+                //<Pagination.Item key={number} active={number === active}>
+                //{number}
+                //</Pagination.Item>,
             );
         }
 
         return (
-            <Container fluid>
-                <Row>
-                    <Col>
-                        <Pagination size="sm">{items}</Pagination>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <Container fluid>
-                            <Row>{employeeList}</Row>
-                        </Container>
-                    </Col>
-                </Row>
-            </Container>
+            <div className="container">
+                <div className="row">
+                    <div className="col xs-12">
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col">
+                        <div className="container">
+                            <div className="row">{employeeList}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         )
     }
 }
