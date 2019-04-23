@@ -21,11 +21,15 @@ const employeeSchema = new Schema({
     },
     cell: {
         type: String,
-        required: false
+        required: true
     },
     dob: {
-        type: Date,
+        type: String,
         required: true
+    },
+    photo: {
+        type: String,
+        required: false
     }
 })
 

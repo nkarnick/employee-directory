@@ -1,0 +1,33 @@
+.employee-card__wrapper {
+    border-radius: 1rem;
+    border: 5px solid #84c1ff;
+    margin-bottom: 0.5rem;
+}
+
+.employee-card__wrapper h1 {
+    font-size: 2rem;
+}
+
+.employee-card__bg {
+    width: 100%;
+    height: 3.5rem;
+    background-color: #84c1ff;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    margin-bottom: -3rem;
+}
+
+.employee-card__picture {
+    float: left;
+    margin-right: 0.5rem;
+}
+
+.employee-card__picture img {
+    width: 152px;
+    border-radius: 1rem;
+    border: 5px solid white;
+}
+
+.employee-card__name {
+    margin-top: 0.25rem;
+}

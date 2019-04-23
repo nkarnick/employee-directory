@@ -46,7 +46,8 @@ function saveEmployees (employees) {
             email: employee.email,
             phone: employee.phone,
             cell: employee.cell,
-            dob: employee.dob.date
+            dob: employee.dob.date,
+            photo: employee.picture.large
         })
 
         // Skip non-latin names like Arabic, Cyrillic, etc

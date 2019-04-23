@@ -20,13 +20,20 @@ module.exports = {
             query.sort('lastName') // Default sort should be alphabetical by last name
 
             const employees = await query.exec()
-            console.log(employees)
 
             var retVal = []
             employees.map(employee => {
                 retVal.push({ ...employee._doc })
             })
             return retVal
+        } catch (err) {
+            console.log(err)
+            throw err
+        }
+    },
+    countEmployees: async (args) => {
+        try {
+            return await Employee.countDocuments()
         } catch (err) {
             console.log(err)
             throw err
@@ -39,7 +46,8 @@ module.exports = {
             email: args.employeeInput.email,
             phone: args.employeeInput.phone,
             cell: args.employeeInput.cell,
-            dob: new Date(args.employeeInput.dob)
+            dob: new Date(args.employeeInput.dob),
+            photo: args.employeeInput.photo
         })
         try {
             var result = await employee.save()
@@ -59,7 +67,8 @@ module.exports = {
                     email: args.employeeInput.email,
                     phone: args.employeeInput.phone,
                     cell: args.employeeInput.cell,
-                    dob: new Date(args.employeeInput.dob)
+                    dob: new Date(args.employeeInput.dob),
+                    photo: args.employeeInput.photo
                 },
                 { new: true, useFindAndModify: false } // We want the response to return the updated record. We don't want to use the deprecated findOneAndUpdate
             )
