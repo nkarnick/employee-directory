@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "dbinit": "node dbinit.js",
+    "start": "nodemon server.js"
   },
   "author": "Nicholas Karnick",
   "license": "ISC",
@@ -13,7 +14,9 @@
     "express": "^4.16.4",
     "express-graphql": "^0.8.0",
     "graphql": "^14.2.1",
-    "mongoose": "^5.5.2"
+    "mongoose": "^5.5.2",
+    "node-fetch": "^2.3.0",
+    "npm": "^6.9.0"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
