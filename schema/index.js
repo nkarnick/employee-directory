@@ -9,6 +9,7 @@ type Employee {
     phone: String!
     cell: String!
     dob: String!
+    photo: String
 }
 
 input EmployeeInput {
@@ -18,6 +19,7 @@ input EmployeeInput {
     phone: String!
     cell: String!
     dob: String!
+    photo: String
 }
 
 type Queries {
@@ -25,6 +27,7 @@ type Queries {
 }
 
 type Mutations {
+    countEmployees: Int!
     createEmployee(employeeInput: EmployeeInput): Employee
     deleteEmployee(id: ID!): Employee!
     updateEmployee(id: ID!, employeeInput: EmployeeInput): Employee
