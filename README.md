@@ -1,6 +1,5 @@
 # Employee Directory
-
-My implementation of Postlight's Full Stack Engineer Code Challenge.
+Employee Directory Code Challenge.
 
 ## Running:
 First, start the backend node server. Navigate to the project root and run:
